@@ -16,7 +16,7 @@ def count_unique(string1):
     i = 0
     for i in words:
         dictionary[i] = dictionary.setdefault(i, words.index(i)) + 1
-    print dictionary
+    return dictionary
 
 # count_unique(string1)
 
@@ -33,7 +33,7 @@ def common_items(list1, list2):
             if num == num2 and num not in common_items_list:
                 common_items_list.append(num)
     
-    print common_items_list
+    return common_items_list
 
     # This solution loops through indices.
     # match_list = []
@@ -69,8 +69,8 @@ def common_items2(list1, list2):
     for k, v in sorted(match_dict.iteritems()): 
         match_list.append(k)
 
-    print match_dict
-    print match_list
+    # print match_dict
+    return match_list
 
 common_items2(list1, list2)
 
@@ -86,7 +86,7 @@ def sum_zero(list1):
         for next_index in range(index+1, len(list1)):
             if list1[index] + list1[next_index] == 0:
                     zero_sum_pairs.append((list1[index], list1[next_index]))
-    print zero_sum_pairs
+    return zero_sum_pairs
 
     # zero_sum_pairs = []
 
@@ -111,7 +111,7 @@ def find_duplicates(words):
 
     duplicate_list = word_count.keys()
 
-    print duplicate_list
+    return duplicate_list
 
 # find_duplicates(words)
 
@@ -203,7 +203,7 @@ def main():
 
     translated_sentence = " ".join(pirate_translation) + "."
 
-    print translated_sentence
+    return translated_sentence
 
 
 if __name__ == "__main__":
