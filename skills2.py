@@ -58,19 +58,32 @@ def common_items2(list1, list2):
 
     # loop through indices of list1 against list2, if number in common, add to dict.
 
-    for index1 in range(0, len(list1)):
-        for index2 in range(0, len(list2)):
-            if(list1[index1] == list2[index2]):
-                if list1[index1] in match_dict:
-                    match_dict[list1[index1]] += 1 #if num is in match dict, add 1 to value
-                else:
-                    match_dict[list1[index1]] = 1 # if num not in match dict, set value to 1
+    for i1 in list1:
+        match_dict[i1] = True
+
+    for i2 in list2:
+        if match_dict.setdefault(i2):
+            match_list.append(i2)
+    return match_list
+
+    #Solution using set, it returns common items. 
+    # return set(list1) & set(list2)
+
+# This is n * m, takes too much time.
+
+    # for index1 in range(0, len(list1)):
+    #     for index2 in range(0, len(list2)):
+    #         if(list1[index1] == list2[index2]):
+    #             if list1[index1] in match_dict:
+    #                 match_dict[list1[index1]] += 1 #if num is in match dict, add 1 to value
+    #             else:
+    #                 match_dict[list1[index1]] = 1 # if num not in match dict, set value to 1
                        
-    for k, v in sorted(match_dict.iteritems()): 
-        match_list.append(k)
+    # for k, v in sorted(match_dict.iteritems()): 
+    #     match_list.append(k)
 
     # print match_dict
-    return match_list
+    # return match_list
 
 common_items2(list1, list2)
 
